@@ -1,3 +1,4 @@
+// A $( document ).ready() block.
 jQuery( document ).ready(function() {
 
 	jQuery.expr[":"].Contains = jQuery.expr.createPseudo(function(arg) {
@@ -11,22 +12,22 @@ jQuery( document ).ready(function() {
 		// Let's define our first command. First the text we expect, and then the function it should call
 		var commands = {
 		'go to *term': function(term) {
-		console.log(term);
-		if(term == 'e store'){
-			term = 'e-store';
-			console.log("Assigned");
-		}else if(term = "news and media"){
-			term = 'news & media';	
-		}else{
-			console.log("Validation failed");
-		}
-		 // $('a:contains(' + term + ')').first().css("font-weight","bold");
-		  var loc = jQuery('a:Contains(' + term + ')').first().attr("href");
-		  if(loc != null){
-			window.location = loc;
-		  }else{
-			console.log("Keyword not found");
-		  }	  
+			console.log(term);
+			if(term == 'e store'){
+				term = 'e-store';
+				console.log("Assigned");
+			}else if(term == "news and media"){
+				term = 'news & media';	
+			}else{
+				console.log("Keyword accepted");
+			}
+			 // $('a:contains(' + term + ')').first().css("font-weight","bold");
+			  var loc = jQuery('a:Contains(' + term + ')').first().attr("href");
+			  if(loc != null){
+				window.location = loc;
+			  }else{
+				console.log("Keyword not found");
+			  }	  
 		},
 		'stop audio': function(){
 			console.log("Bingo");
@@ -54,6 +55,9 @@ jQuery( document ).ready(function() {
 	};
 	
 	var menuReading = function(){
+		
+		readContent("Sections are ");
+		
 		jQuery("ul#menu-newmenu-1 li a").each(function(){
 			var content = jQuery(this).text();
 			readContent(content);
@@ -62,7 +66,7 @@ jQuery( document ).ready(function() {
 	
 	var readWebPageDetails = function(){
 
-		jQuery("div.container:visible").each(function(){
+		jQuery("section div.container:visible").each(function(){
 			jQuery(this).find("a:visible, p:visible, span:visible").each(function(){
 				var content = jQuery(this).text();
 				readContent(content);
@@ -88,21 +92,41 @@ jQuery( document ).ready(function() {
 	};
 	
 	var startReading = function(){
-		readContent("Welcome to Giftabled.org");
+		//readContent("Welcome to Giftabled.org");
+		var title = jQuery("title").text();
+		if(title != undefined || title != null){
+			console.log(title);
+			readContent("You are on " + title);
+		}
+		
+		var descriptionObj = jQuery("meta[name=description]");
+		if(descriptionObj != undefined || descriptionObj != null){
+			var description = descriptionObj.attr("content");
+			if(description != undefined || description != null){
+				readContent(description);
+			}
+		}
+		
 		setTimeout(function(){
-			readContent("I will now speak all the Avaialbe sections in this website.");
+		    readContent("I will now read out the web page for you.");
+			readContent("You can stop audio by saying stop audio and to resume audio say start audio");
+			readContent("I will now speak all the available sections in this website.");
 			readContent("Speak go to section name to change the section. For example go to Photo Gallary to see the images");
 			menuReading();
 			setTimeout(function(){
-				readContent("You can stop audio by saying stop audio and to resume audio say start audio");
 				readContent("I will now read the page description");				
 				readWebPageDetails();
 			}, 5000);
 
 		}, 5000);
 	};
-	
 
+/*	
+	annyang.addCallback("resultNoMatch", function(phrases){
+	    console.log("cannot recognize");
+		readContent("Please try again");
+	});
+*/
 	
 	if(jQuery.cookie("isAudioEnabled") == undefined){
 		
