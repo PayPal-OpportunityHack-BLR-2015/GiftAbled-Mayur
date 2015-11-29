@@ -1,47 +1,53 @@
-=======================================================================================
-
-#GiftAbled(Platform that Challenging Perceptions of Disability!)
-
-GiftAbled is a Social Enterprise which works in the space of disability. GiftAbled strives to create an ecosystem of like-minded individuals to come together to build a sensitized and disabled friendly society.
 
 =======================================================================================
+Brief introduction:
 
-This website provides many accessibility features for people with Disability.
+GiftAbled(http://giftabled.org/) is a Social Enterprise which works in the space of disability.GiftAbled strives 
+to create an ecosystem of like-minded individuals to come together to build a sensitized and disabled friendly society.
+GiftAbled also provides a marketplace for the products made by and for differently-abled, 
+in turn supporting livelihood of People with Disability.
+=======================================================================================
+We are doing it for a social cause. We are here to give back to the society. By doing this we are 
+enabling differently abled users and connecting them to the rest of the world.
+=========================================================================================
+Features and tools:
 
-- This site will initially load with a pop up which allows user to open the site in Audio mode.
+- Allows user to load the site in Audio mode.
 
-- It can read the customised content from site.
+- Ability to read the customised/selected content.
 
-- People with Disability can speak out the page, they wanted to visit.
+- Site navigation by speaking.
 
-- All the resource to implement above features are open source.
+- All features are implemented using open source.
 
-- We are providing below open source tools to test website accessibility.
+- Below open source tools are used to test website accessibility.
 	1. http://wave.webaim.org/
 	2. https://github.com/paypal/AATT (Paypal open source tool)
 	3. http://achecker.ca/checker/index.php
 	
 - Attaching accessibility report in excel and pdf.
 
-Extendable functionality :
-
-- We have integrated with Payment gateway for donation.
+- Integration with Payment gateway for donation.
 
 =========================================================================================
 
-Steps to build code :
+how to test and use:
 
-This is a live site so we can not push the fully working code in gitHub. We are providing some sample code which can be useful to test the above features:
+This is a live site.  The source code are private and owned by organisation. 
+Therefore we cannot share the source code on gitHub. 
+We have provided samples to test the above implemented features:
+ 
+ Contents provided:
+	-Sample home HTML page
+	-Js file with all audio read out/in APIs
 
--Sample home HTML page
--Js file with all audio read out/in APIs
-
-To test the code :-
-- load the home HTML page in audio mode
-- Welcome introduction, Menus, current page content
-- Give a voice command to page navigation
-- Appropriate page vill be navigated
-- Site will speak out the page content
+ Steps to test and use:
+	- Load the home page in audio mode
+	- Welcome introduction, Menus, current page content
+	- Give voice command for page navigation.
+	- Page content will read out for user.
+	
+Live Site: http://giftabled.org/
 
 ==========================================================================================
 
